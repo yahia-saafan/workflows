@@ -1,0 +1,20 @@
+name: issue-created
+on: 
+    issues:
+        types: opened
+
+jobs:
+  details:
+    runs-on: ubuntu-latest
+    steps:
+        - name: Print Details
+          run: |
+            echo "Issue Title: ${{ github.event.issue.title}}"
+            echo "Issue Description: ${{ github.event.issue.body}}"
+            echo "Issue URL: ${{ github.event.issue.html_url}}"
+            echo "Issue Creator: ${{ github.event.issue.user.login}}"
+            echo "Issue Created At: ${{ github.event.issue.created_at}}"
+            echo "Issue Labels: ${{ github.event.issue.labels}}"
+            echo "Issue Assignees: ${{ github.event.issue.assignees}}"
+            echo "Issue Milestone: ${{ github.event.issue.milestone}}"
+            echo "Issue Number: ${{ github.event.issue.number}}"
